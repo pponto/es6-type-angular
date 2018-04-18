@@ -11,7 +11,7 @@ import { FRASES } from './frases-mock';
 export class PainelComponent implements OnInit {
 
   public frases: Frase[] = FRASES;
-  public instrucao: string = 'Traduza a frase:'
+  public instrucao: string = 'Traduza a frase:';
 
   constructor() {console.log(this.frases)}
 
