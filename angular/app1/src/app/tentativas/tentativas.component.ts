@@ -16,11 +16,18 @@ export class TentativasComponent implements OnInit, OnChanges {
   ];
 
   constructor() {
-    console.log(this.coracoes);
+    console.log(this.coracoes.length);
   }
 
   // ngOnChanges sempre será disparado após o @Input ser chamado
   ngOnChanges() {
+
+    // this.tentativas - gerenciada pela classe do componente painel
+    // this.coracoes.length
+    if (this.tentativas !== this.coracoes.length) { // 3 - 2 = 1 - 1 = 0
+      let indice = this.coracoes.length - this.tentativas
+      this.coracoes[indice - 1].cheio = false
+    }
     console.log('tentativas recebidas do painel: ', this.tentativas);
   }
 
