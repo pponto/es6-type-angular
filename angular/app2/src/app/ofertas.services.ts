@@ -43,17 +43,35 @@ export class OfertasService {
       valor: 31.90,
       destaque: true,
       imagens: [
-        {url: "/assets/ofertas/3/img1.jpg"},
-        {url: "/assets/ofertas/3/img2.jpg"},
-        {url: "/assets/ofertas/3/img3.jpg"},
-        {url: "/assets/ofertas/3/img4.jpg"},
-        {url: "/assets/ofertas/3/img5.jpg"},
-        {url: "/assets/ofertas/3/img6.jpg"}
+        {url: "/assets/ofertas/4/img1.jpg"},
+        {url: "/assets/ofertas/4/img2.jpg"},
+        {url: "/assets/ofertas/4/img3.jpg"},
+        {url: "/assets/ofertas/4/img4.jpg"},
+        {url: "/assets/ofertas/4/img5.jpg"},
+        {url: "/assets/ofertas/4/img6.jpg"}
       ]
     }
   ]
 
   public getOfertas(): Array<Oferta> {
     return this.ofertas
+  }
+
+  public getOfertas2(): Promise<Oferta[]> {
+    return new Promise((resolve, reject) => {
+      // algum tipo de processamento, que ao finalizar, chama a função resolve ou reject
+      let deu_certo = true
+
+      if(deu_certo) {
+        setTimeout(() => resolve( this.ofertas ), 3000)
+      } else {
+        reject({ codigo_erro: 404, mensagem_erro: 'Servidor não encontrado' })
+      }
+    })
+    .then(( ofertas: Oferta[]) => {
+      // fazer alguma tratativa
+      console.log('primeiro then')
+      return ofertas
+    })
   }
 }
